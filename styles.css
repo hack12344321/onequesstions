@@ -2,70 +2,51 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: linear-gradient(to bottom right, #87CEEB, #FFFFFF);
+    background: linear-gradient(to bottom right, #bbeafc, #ffffff);
     font-family: 'Arial', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container {
+#question-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    color: #333;
+    transition: transform 0.3s ease-in-out;
 }
 
-h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
+#question-container:hover {
+    transform: scale(1.1);
 }
 
-button {
+#greetingYesBtn {
+    margin: 10px;
     padding: 10px 20px;
-    font-size: 1em;
+    font-size: 16px;
     background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
-#question-container {
-    background-color: #fff; /* Màu nền của question-container */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
-    text-align: center;
-    transition: transform 0.3s ease-in-out; /* Hiệu ứng khi hover */
-}
-
-#question-container:hover {
-    transform: scale(1.1); /* Phóng to khi hover */
-}
-
-#yesBtn{
-    margin: 10px; /* Khoảng cách giữa nút và câu hỏi */
+#greetingNoBtn {
+    margin: 10px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #2ecc71; /* Màu nền của nút */
-    color: #fff; /* Màu chữ trắng */
+    background-color: #e62525;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out; /* Hiệu ứng khi hover */
+    transition: background-color 0.3s ease-in-out;
 }
 
-#noBtn {
-    margin: 10px; /* Khoảng cách giữa nút và câu hỏi */
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #e62525; /* Màu nền của nút */
-    color: #fff; /* Màu chữ trắng */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out; /* Hiệu ứng khi hover */
-}
-
-#yesBtn:hover, #noBtn:hover {
-    background-color: #000000; /* Màu nền của nút khi hover */
+#greetingYesBtn:hover,
+#greetingNoBtn:hover {
+    background-color: #000000;
 }
