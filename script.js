@@ -2,98 +2,135 @@ var startQuestionAnswered = false;
 var questionCount = 0; // Đếm số câu hỏi đã được trả lời
 
 function startQuiz() {
-    var startQuestionElement = document.getElementById('question');
-    var yesButton = document.getElementById('yesBtn');
-    var noButton = document.getElementById('noBtn');
+    var greetingQuestionElement = document.getElementById('question');
+    var greetingYesButton = document.getElementById('greetingYesBtn');
+    var greetingNoButton = document.getElementById('greetingNoBtn');
 
-    // Hiển thị câu hỏi đầu tiên và nút trả lời
-    startQuestionElement.innerHTML = "Cậu có phải bạn Thùy Linh à?";
-    yesButton.innerHTML = "Đúng";
-    noButton.innerHTML = "Sai";
+    greetingQuestionElement.innerHTML = "Xin chào cậu!";
+    greetingYesButton.innerHTML = "Xin chào cậu.";
+    greetingNoButton.innerHTML = "Không chào!";
 
-    // Đặt hàm xử lý cho nút "Đúng" và "Sai"
-    yesButton.onclick = function () {
-        alert("Ồ thì ra là cậu!");
+    greetingYesButton.onclick = function () {
+        alert("Xin chào cậu!");
         startQuestionAnswered = true;
         questionCount++;
-        // Hiển thị câu hỏi thứ hai sau khi trả lời câu hỏi đầu
-        changeQuestionTwo();
+        changeNextQuestion();
     };
 
-    noButton.onclick = function () {
-        alert("Cậu không phải sao\nThui cậu đừng điu 😠");
+    greetingNoButton.onclick = function () {
+        alert("Bạn choảnh gì gọ?");
         startQuestionAnswered = true;
         questionCount++;
-        // Hiển thị câu hỏi thứ hai sau khi trả lời câu hỏi đầu
-        changeQuestionTwo();
+        changeNextQuestion();
     };
 }
 
 function showMessage(message) {
     if (message === 'OK' && startQuestionAnswered) {
-        alert("Cảm ơn cậu rất nhiều 🤗!"); // Thông báo thay đổi tùy thuộc vào câu trả lời của bạn
+        alert("Cảm ơn cậu rất nhiều 🤗!");
         questionCount++;
-        // Hiển thị câu hỏi tiếp theo sau khi trả lời câu hỏi thứ hai
         changeNextQuestion();
     } else if (message === 'NO' && startQuestionAnswered) {
-        alert("Đi mà cậu <icon năn nỉ>"); // Thông báo thay đổi tùy thuộc vào câu trả lời của bạn
-        questionCount++;
-        // Hiển thị câu hỏi tiếp theo sau khi trả lời câu hỏi thứ hai
-        changeNextQuestion();
-    }
-
-    // Bổ sung vào hàm để kiểm tra khi trả lời xong câu hỏi cuối cùng
-    handleLastQuestion();
-}
-
-function handleLastQuestion() {
-    // Kiểm tra xem đã trả lời hết 3 câu hỏi chưa
-    if (questionCount === 3) {
-        // Chuyển hướng đến đường dẫn https://www.youtube.com/watch?v=rYc1UbgbMIY
-        window.location.href = "https://www.youtube.com/watch?v=rYc1UbgbMIY";
-    }
-}
-
-function changeQuestionTwo() {
-    var questionElement = document.getElementById('question');
-    var yesButton = document.getElementById('yesBtn');
-    var noButton = document.getElementById('noBtn');
-
-    // Thay đổi câu hỏi và biểu cảm tương ứng
-    questionElement.innerHTML = "Bạn Thùy Linh ơi, tớ hỏi cậu một câu được không 😊?";
-    yesButton.innerHTML = "OK";
-    noButton.innerHTML = "NO";
-
-    // Đặt hàm xử lý cho nút "OK" và "NO"
-    yesButton.onclick = function () {
-        showMessage('OK');
-    };
-
-    noButton.onclick = function () {
         alert("Đi mà cậu <icon năn nỉ>");
-    };
+        questionCount++;
+        changeNextQuestion();
+    } else if (message === 'Hello') {
+        alert("Tớ biết cậu sẽ thành thật mà!");
+        questionCount++;
+        changeNextQuestion();
+    } else if (message === 'NotHello') {
+        alert("Are u sure :)?");
+    }    else if (message === 'Deny') {
+        alert("Kệ cậu tớ vẫn hỏi");
+        changeNextQuestion();
+    }else if (message === 'Allow') {
+        alert("Cảm ơn bạn nhiều <3");
+        questionCount++;
+        changeNextQuestion();
+    } else if (message === 'Sure') {
+        alert("Oke bạn tui, cậu hãy ib lại cho người mà cậu biết là ai vì website này không thông báo cho tớ câu trả lời của cậu :))))))");
+        displayThankYouMessage();
+    } else if (message === 'NotSure') {
+        alert("Không được sao cậu :((((???");
+        alert("Năn nỉ lun đóe");
+        alert("pls :((((((((((((");
+        alert("Để chắc chắn bản thân không bị từ chối thì tớ sẽ xóa chức năng của nút không luôn :))))))))");
+        // Xử lý logic tiếp theo sau khi hiển thị thông báo "Không được sao cậu :((((???"
+    }
 }
 
 function changeNextQuestion() {
     var questionElement = document.getElementById('question');
-    var yesButton = document.getElementById('yesBtn');
-    var noButton = document.getElementById('noBtn');
+    var greetingYesButton = document.getElementById('greetingYesBtn');
+    var greetingNoButton = document.getElementById('greetingNoBtn');
 
-    // Thay đổi câu hỏi và biểu cảm tương ứng cho câu hỏi tiếp theo
-    questionElement.innerHTML = "Không biết chủ nhận cậu rành chút thời gian đi ăn bánh uống nước được không 🥳?";
-    yesButton.innerHTML = "OKI";
-    noButton.innerHTML = "NOPE";
+    switch (questionCount) {
+        case 1:
+            questionElement.innerHTML = "Cậu có phải bạn Thùy Linh a5 đúng hơm?";
+            greetingYesButton.innerHTML = "Đúng vậy :)";
+            greetingNoButton.innerHTML = "Hong phải";
+            greetingYesButton.onclick = function () {
+                showMessage('Hello');
+            };
+            greetingNoButton.onclick = function () {
+                showMessage('NotHello');
+            };
+            break;
 
-    // Đặt hàm xử lý cho nút "OKI" và "NOPE"
-    yesButton.onclick = function () {
-        alert("Thống nhất thế nhá bạn tui 🤗!!!!!\nIB lại mình để mình sắp xếp");
+        case 2:
+            if (startQuestionAnswered) {
+                alert("Tớ biết cậu sẽ thành thật mà!");
+            } else {
+                alert("Are u sure :)?");
+            }
+            break;
 
-    };
+        case 3:
+            questionElement.innerHTML = "Tớ là bạn A ẩn danh, tớ dùng cái này để muốn hỏi cậu một câu hỏi :))))))";
+            greetingYesButton.innerHTML = "Cho phép";
+            greetingNoButton.innerHTML = "Dell cho";
+            greetingYesButton.onclick = function () {
+                showMessage('Allow');
+            };
+            greetingNoButton.onclick = function () {
+                showMessage('Deny');
+            };
+            break;
 
-    noButton.onclick = function () {
-        alert("Năn nỉ lun đóa <icon buồn>");
-    };
+        case 4:
+            if (startQuestionAnswered) {
+                alert("Cảm ơn bạn nhiều <3");
+            } else {
+                alert("Kệ cậu tớ vẫn hỏi");
+            }
+            break;
+
+        case 5:
+            questionElement.innerHTML = "Không biết chiều thứ 2 sang tuần cậu có rảnh không? \n Tớ muốn mời cậu đi ăn bánh uống trà(sữa) một tí. \n Không biết cậu có thể đi cùng được không!";
+            greetingYesButton.innerHTML = "Chắc cũng đi được";
+            greetingNoButton.innerHTML = "Không/không chắc";
+            greetingYesButton.onclick = function () {
+                showMessage('Sure');
+            };
+            greetingNoButton.onclick = function () {
+                showMessage('NotSure');
+                greetingNoButton.disabled = true;
+                changeNextQuestion();
+            };
+            break;
+
+        // Các case khác giữ nguyên
+    }
+
+    questionCount++;
 }
+
+function displayThankYouMessage() {
+    var questionContainer = document.getElementById('question-container');
+    questionContainer.innerHTML = "<p>Cảm ơn cậu nhìu</p>";
+}
+
+
 
 // Bắt đầu câu hỏi đầu tiên khi trang web được tải
 startQuiz();
