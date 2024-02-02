@@ -103,7 +103,7 @@ function changeNextQuestion() {
             } else {
                 alert("Kệ cậu tớ vẫn hỏi");
             }
-            break;
+            break;s
 
         case 5:
             questionElement.innerHTML = "Không biết chiều thứ 2 sang tuần cậu có rảnh không? \n Tớ muốn mời cậu đi ăn bánh uống trà(sữa) một tí. \n Không biết cậu có thể đi cùng được không!";
