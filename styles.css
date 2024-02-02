@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #87CEEB, #FFFFFF);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    color: #333;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#question-container {
+    background-color: #fff; /* Màu nền của question-container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* Hiệu ứng khi hover */
+}
+
+#question-container:hover {
+    transform: scale(1.1); /* Phóng to khi hover */
+}
+
+#yesBtn{
+    margin: 10px; /* Khoảng cách giữa nút và câu hỏi */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2ecc71; /* Màu nền của nút */
+    color: #fff; /* Màu chữ trắng */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out; /* Hiệu ứng khi hover */
+}
+
+#noBtn {
+    margin: 10px; /* Khoảng cách giữa nút và câu hỏi */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #e62525; /* Màu nền của nút */
+    color: #fff; /* Màu chữ trắng */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out; /* Hiệu ứng khi hover */
+}
+
+#yesBtn:hover, #noBtn:hover {
+    background-color: #000000; /* Màu nền của nút khi hover */
+}
